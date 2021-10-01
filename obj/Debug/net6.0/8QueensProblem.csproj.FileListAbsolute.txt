@@ -1,0 +1,15 @@
+C:\Users\Artem\source\repos\8QueensProblem\bin\Debug\net6.0\8QueensProblem.exe
+C:\Users\Artem\source\repos\8QueensProblem\bin\Debug\net6.0\8QueensProblem.deps.json
+C:\Users\Artem\source\repos\8QueensProblem\bin\Debug\net6.0\8QueensProblem.runtimeconfig.json
+C:\Users\Artem\source\repos\8QueensProblem\bin\Debug\net6.0\8QueensProblem.dll
+C:\Users\Artem\source\repos\8QueensProblem\bin\Debug\net6.0\ref\8QueensProblem.dll
+C:\Users\Artem\source\repos\8QueensProblem\bin\Debug\net6.0\8QueensProblem.pdb
+C:\Users\Artem\source\repos\8QueensProblem\obj\Debug\net6.0\8QueensProblem.csproj.AssemblyReference.cache
+C:\Users\Artem\source\repos\8QueensProblem\obj\Debug\net6.0\8QueensProblem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Artem\source\repos\8QueensProblem\obj\Debug\net6.0\8QueensProblem.AssemblyInfoInputs.cache
+C:\Users\Artem\source\repos\8QueensProblem\obj\Debug\net6.0\8QueensProblem.AssemblyInfo.cs
+C:\Users\Artem\source\repos\8QueensProblem\obj\Debug\net6.0\8QueensProblem.csproj.CoreCompileInputs.cache
+C:\Users\Artem\source\repos\8QueensProblem\obj\Debug\net6.0\8QueensProblem.dll
+C:\Users\Artem\source\repos\8QueensProblem\obj\Debug\net6.0\ref\8QueensProblem.dll
+C:\Users\Artem\source\repos\8QueensProblem\obj\Debug\net6.0\8QueensProblem.pdb
+C:\Users\Artem\source\repos\8QueensProblem\obj\Debug\net6.0\8QueensProblem.genruntimeconfig.cache
