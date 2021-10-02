@@ -7,19 +7,15 @@ namespace _8QueensProblem
     {
         static void Main(string[] args)
         {
+            UserInterface ui = new();
 
-            ChessBoard problem = new();
-            problem.RandBoard();
+            ui.GetInfo();
 
-            //A_Star a_star = new A_Star(problem);
-            //a_star.Start();
+            ui.InitializeBoard();
 
-            BFS bfs = new BFS(problem);
-            bfs.Start();
+            ui.Start();
 
-            Console.WriteLine("Result: ");
-            //a_star.ResultBoard.PrintBoard();
-            bfs.ResultBoard.PrintBoard();
+            ui.ShowResult();
 
             Console.ReadKey();
         }
