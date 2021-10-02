@@ -27,8 +27,6 @@ namespace _8QueensProblem
             do
             {
                 curr = open.Dequeue();
-                curr.State.PrintBoard();
-                Console.WriteLine();
                 closed.Add(curr);
                 if (curr.State.IsSolved())
                 {
