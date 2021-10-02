@@ -9,7 +9,7 @@ namespace _8QueensProblem
         {
 
             ChessBoard problem = new();
-            problem.ReadBoard();
+            problem.RandBoard();
 
             //A_Star a_star = new A_Star(problem);
             //a_star.Start();
