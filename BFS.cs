@@ -9,11 +9,13 @@ namespace _8QueensProblem
     internal class BFS
     {
         private ChessBoard initialBoard;
-        public ChessBoard ResultBoard {  get; private set; }
+        public ChessBoard ResultBoard { get; private set; }
 
         private Queue<TreeNode> open = new();
         private List<TreeNode> closed = new();
         private List<TreeNode> childs = new();
+
+        private int states, iterations;
 
         public BFS(ChessBoard problem)
         {
@@ -25,8 +27,10 @@ namespace _8QueensProblem
         {
             TreeNode curr = new TreeNode(initialBoard);
             open.Enqueue(curr);
+            states++;
             do
             {
+                iterations++;
                 curr = open.Dequeue();
                 closed.Add(curr);
                 if (curr.State.IsSolved())
@@ -39,10 +43,11 @@ namespace _8QueensProblem
                     childs = curr.Expand();
                     foreach (TreeNode child in childs)
                     {
+                        states++;
                         if (!IsVisited(child))
                         {
                             open.Enqueue(child);
-                        }                                            
+                        }
                     }
                 }
             } while (open.Count != 0);
@@ -58,6 +63,11 @@ namespace _8QueensProblem
                 }
             }
             return false;
+        }
+
+        public (int iterations, int states, int statesInMemory) GetInfo()
+        {
+            return (iterations, states, open.Count + closed.Count);
         }
     }
 }

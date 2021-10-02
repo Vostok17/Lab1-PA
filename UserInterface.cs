@@ -19,6 +19,7 @@ namespace _8QueensProblem
                     Console.Write("\nOnly 0 or 1 is acceptable!\nChoice: ");
                     value = Console.ReadLine();
                     //throw new ArgumentException("Only 0 or 1 is acceptable");
+                    readOption = value;
                 }
             }
         }
@@ -29,15 +30,20 @@ namespace _8QueensProblem
             get { return algorytm; }
             set
             {
-                if (value != "0" && value != "1")
+                while (value != "0" && value != "1")
                 {
                     Console.Write("\nOnly 0 or 1 is acceptable!\nChoice: ");
                     //throw new ArgumentException("Only 0 or 1 is acceptable");
                 }
+                algorytm = value;
             }
         }
 
-        ChessBoard problem, result;
+        private ChessBoard problem, result;
+        private int iterations, states, stateInMemory;
+        private BFS bfs;
+        private A_Star a_star;
+
         public void GetInfo()
         {
             Console.WriteLine("Choose an option:");
@@ -57,13 +63,14 @@ namespace _8QueensProblem
         {
             if (Algorytm == "0")
             {
-                BFS bfs = new BFS(problem);
+                bfs = new BFS(problem);
                 bfs.Start();
                 result = bfs.ResultBoard;
+
             }
             else
             {
-                A_Star a_star = new A_Star(problem);
+                a_star = new A_Star(problem);
                 a_star.Start();
                 result = a_star.ResultBoard;
             }
@@ -86,6 +93,23 @@ namespace _8QueensProblem
         {
             Console.WriteLine("Result board:");
             result.PrintBoard();
+
+            if (algorytm == "0")
+            {
+                var data = bfs.GetInfo();
+                PrintStatistics(data.iterations, data.states, data.statesInMemory);
+            }
+            else
+            {
+                var data = a_star.GetInfo();
+                PrintStatistics(data.iterations, data.states, data.statesInMemory);
+            }
+        }
+        public void PrintStatistics(int iterations, int states, int statesInMemory)
+        {
+            Console.WriteLine("\nIterations: {0}", iterations);
+            Console.WriteLine("States: {0}", states);
+            Console.WriteLine("States in memory: {0}", statesInMemory);
         }
     }
 }

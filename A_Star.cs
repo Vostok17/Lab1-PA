@@ -14,6 +14,7 @@ namespace _8QueensProblem
         private PriorityQueue<TreeNode, int> open = new();
         private List<TreeNode> closed = new();
 
+        private int iterations, states;
         public A_Star(ChessBoard problem)
         {
             initialBoard = problem;
@@ -24,8 +25,10 @@ namespace _8QueensProblem
         {
             TreeNode curr = new TreeNode(initialBoard);
             open.Enqueue(curr, F2(curr.State));
+            states++;
             do
             {
+                iterations++;
                 curr = open.Dequeue();
                 closed.Add(curr);
                 if (curr.State.IsSolved())
@@ -36,6 +39,7 @@ namespace _8QueensProblem
                 List<TreeNode> childs = curr.Expand();
                 foreach (TreeNode child in childs)
                 {
+                    states++;
                     if (!IsVisited(child))
                     {
                         open.Enqueue(child, F2(child.State));
@@ -43,6 +47,7 @@ namespace _8QueensProblem
                 }
             } while (open.Count != 0);
         }
+
 
         private int F2(ChessBoard board)
         {
@@ -71,6 +76,12 @@ namespace _8QueensProblem
                 }
             }
             return false;
+        }
+
+
+        public (int iterations, int states, int statesInMemory) GetInfo()
+        {
+            return (iterations, states, open.Count + closed.Count);
         }
     }
 }
