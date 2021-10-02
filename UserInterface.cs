@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,9 @@ namespace _8QueensProblem
                 {
                     Console.Write("\nOnly 0 or 1 is acceptable!\nChoice: ");
                     value = Console.ReadLine();
-                    //throw new ArgumentException("Only 0 or 1 is acceptable");
-                    readOption = value;
+                    //throw new ArgumentException("Only 0 or 1 is acceptable");                    
                 }
+                readOption = value;
             }
         }
 
@@ -40,7 +41,8 @@ namespace _8QueensProblem
         }
 
         private ChessBoard problem, result;
-        private int iterations, states, stateInMemory;
+
+        public Stopwatch time = new();
         private BFS bfs;
         private A_Star a_star;
 
@@ -61,7 +63,8 @@ namespace _8QueensProblem
 
         public void Start()
         {
-            if (Algorytm == "0")
+            time.Start();
+            if (algorytm == "0")
             {
                 bfs = new BFS(problem);
                 bfs.Start();
@@ -74,13 +77,14 @@ namespace _8QueensProblem
                 a_star.Start();
                 result = a_star.ResultBoard;
             }
+            time.Stop();
         }
 
         public void InitializeBoard()
         {
             problem = new();
 
-            if (ReadOption == "0") problem.RandBoard();
+            if (readOption == "0") problem.RandBoard();
             else problem.ReadBoard();
 
             Console.WriteLine("\nInitial board:");
@@ -110,6 +114,7 @@ namespace _8QueensProblem
             Console.WriteLine("\nIterations: {0}", iterations);
             Console.WriteLine("States: {0}", states);
             Console.WriteLine("States in memory: {0}", statesInMemory);
+            Console.WriteLine("Time: {0:0.000}", time.Elapsed.TotalSeconds);
         }
     }
 }
