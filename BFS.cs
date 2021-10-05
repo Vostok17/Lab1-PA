@@ -12,7 +12,6 @@ namespace _8QueensProblem
         public ChessBoard ResultBoard { get; private set; }
 
         private Queue<TreeNode> open = new();
-        private List<TreeNode> closed = new();
         private List<TreeNode> childs = new();
 
         private int states, iterations;
@@ -27,12 +26,10 @@ namespace _8QueensProblem
         {
             TreeNode curr = new TreeNode(initialBoard);
             open.Enqueue(curr);
-            states++;
             do
             {
                 iterations++;
                 curr = open.Dequeue();
-                closed.Add(curr);
                 if (curr.State.IsSolved())
                 {
                     ResultBoard = curr.State;
@@ -44,30 +41,15 @@ namespace _8QueensProblem
                     foreach (TreeNode child in childs)
                     {
                         states++;
-                        if (!IsVisited(child))
-                        {
-                            open.Enqueue(child);
-                        }
+                        open.Enqueue(child);
                     }
                 }
             } while (open.Count != 0);
         }
 
-        private bool IsVisited(TreeNode child)
-        {
-            foreach (var node in closed)
-            {
-                if (ChessBoard.IsEqual(child.State, node.State))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         public (int iterations, int states, int statesInMemory) GetInfo()
         {
-            return (iterations, states, open.Count + closed.Count);
+            return (iterations, states, open.Count);
         }
     }
 }

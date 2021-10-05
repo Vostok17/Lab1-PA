@@ -86,7 +86,7 @@ namespace _8QueensProblem
             }
         }
 
-        public void ReadBoard(string path = @"C:\Users\Artem\source\repos\8QueensProblem\read.txt")
+        /*public void ReadBoard(string path = @"C:\Users\Artem\source\repos\8QueensProblem\read.txt")
         {
             using (StreamReader sr = new StreamReader(path))
             {
@@ -107,8 +107,27 @@ namespace _8QueensProblem
                     boardPtr++;
                 }
             }
-        }
+        }*/
 
+        public void ReadBoard(string path = @"C:\Users\Artem\source\repos\8QueensProblem\read.txt")
+        {
+            using (StreamReader sr = new StreamReader(path))
+            {
+                string line;
+                for (int j = 0; j < 23; j++)
+                {
+                    line = sr.ReadLine();
+                    if (j == 18)
+                    {
+                        string[] arr = line.Split(' ');
+                        for (int i = 0; i < 8; i++)
+                        {
+                            Board[i] = Convert.ToInt32(arr[i]);
+                        }
+                    }
+                }
+            }
+        }
         public bool IsSolved()
         {
             for (int i = 0; i < Size - 1; i++)
