@@ -68,7 +68,7 @@ namespace _8QueensProblem
             }
         }
 
-        public void WriteBoard(string path = @"C:\Users\Artem\source\repos\8QueensProblem\write.txt")
+        public void WriteBoard(string path = @"C:\Users\Artem\source\repos\8QueensProblem\files\write.txt")
         {
             using (StreamWriter sw = new StreamWriter(path))
             {
@@ -85,7 +85,7 @@ namespace _8QueensProblem
             }
         }
 
-        public void ReadBoard(string path = @"C:\Users\Artem\source\repos\8QueensProblem\read.txt")
+        public void ReadBoard(string path = @"C:\Users\Artem\source\repos\8QueensProblem\files\read.txt")
         {
             using (StreamReader sr = new StreamReader(path))
             {
