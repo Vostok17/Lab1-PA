@@ -31,7 +31,6 @@ namespace _8QueensProblem
         // board[4] = 5
         // e5
 
-        //public int[] Board { get; private set; }
         public int[] Board { get; set; }
         public int Size { get; }
 
@@ -85,29 +84,6 @@ namespace _8QueensProblem
                 }
             }
         }
-
-        /*public void ReadBoard(string path = @"C:\Users\Artem\source\repos\8QueensProblem\read.txt")
-        {
-            using (StreamReader sr = new StreamReader(path))
-            {
-                string line;
-                int boardPtr = 0;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    line = line.Trim();
-                    String[] arr = line.Split(' ');
-
-                    for (int i = 0; i < arr.Length; i++)
-                    {
-                        if (arr[i] == "#")
-                        {
-                            Board[i] = boardPtr;
-                        }
-                    }
-                    boardPtr++;
-                }
-            }
-        }*/
 
         public void ReadBoard(string path = @"C:\Users\Artem\source\repos\8QueensProblem\read.txt")
         {
