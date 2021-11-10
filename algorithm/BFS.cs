@@ -25,9 +25,11 @@ namespace _8QueensProblem
         public void Start()
         {
             TreeNode curr = new TreeNode(initialBoard);
+            HashSet<TreeNode> visited = new();
             open.Enqueue(curr);
             do
             {
+                visited.Add(curr);
                 iterations++;
                 curr = open.Dequeue();
                 if (curr.State.IsSolved())
@@ -40,8 +42,11 @@ namespace _8QueensProblem
                     childs = curr.Expand();
                     foreach (TreeNode child in childs)
                     {
-                        states++;
-                        open.Enqueue(child);
+                        if (!visited.Contains(child))
+                        {
+                            states++;
+                            open.Enqueue(child);
+                        }                        
                     }
                 }
             } while (open.Count != 0);
